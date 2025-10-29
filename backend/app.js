@@ -1,13 +1,13 @@
 // backend/app.js
 import express from "express";
-import helloRoutes from "./routes/helloRoutes.js";
+import helloRoutes from "./routes/helloRoutes.js"; // ✅ default import
 
 const app = express();
 
 // Middleware
 app.use(express.json());
 
-// Routes
-app.use("/api/hello", helloRoutes);
+// ✅ Mount the router once under /api
+app.use("/api", helloRoutes);
 
 export default app;

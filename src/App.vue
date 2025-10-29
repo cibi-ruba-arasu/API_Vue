@@ -23,6 +23,15 @@ const my_api_function = async () => {
   }
 };
 
+let my_api_hardcoded = ref("");
+
+const hardcoded_function = async () =>{
+  const resp = await fetch("api/sampledata")
+  const list = await resp.json();
+  my_api_hardcoded.value = list;
+  console.log(my_api_hardcoded.value)
+}
+
 </script>
 
 <template>
@@ -34,6 +43,10 @@ const my_api_function = async () => {
     <p class="highaf">{{ my_api }}</p>
   </div>
   <button @click="my_api_function">Click to view My API</button>
+  <div>
+    <p class="highaf">{{ my_api_hardcoded }}</p>
+  </div>
+  <button @click="hardcoded_function">Click to view My API</button>
 </template>
 
 <style scoped>
